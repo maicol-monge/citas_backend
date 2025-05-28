@@ -11,7 +11,9 @@ const medicoRoutes = require("./routes/medicoRoutes"); // <-- NUEVO
 const app = express(); //Instancia del servidor
  //Evitar errores al consumir en React
 app.use(cors({
-  origin: '*', // o puedes poner solo tu frontend: 'https://midominio.web.app'
+  origin: 'citasfrontend-production.up.railway.app', // cambia esta URL por la real
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
 }));
 app.use(express.json()); //Recibir los datos en JSON
 
