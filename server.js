@@ -9,7 +9,10 @@ const adminRoutes = require("./routes/adminRoutes");
 const medicoRoutes = require("./routes/medicoRoutes"); // <-- NUEVO
 
 const app = express(); //Instancia del servidor
-app.use(cors()); //Evitar errores al consumir en React
+ //Evitar errores al consumir en React
+app.use(cors({
+  origin: '*', // o puedes poner solo tu frontend: 'https://midominio.web.app'
+}));
 app.use(express.json()); //Recibir los datos en JSON
 
 db.connect((err) => {
@@ -31,3 +34,7 @@ app.use("/api/usuarios", userRoutes); //Ruta para el registro de usuarios
 app.use("/api/pacientes", pacienteRoutes); //Ruta para el registro de usuarios
 app.use("/api/admin", adminRoutes); //Ruta para administración
 app.use("/api/medico", medicoRoutes); // <-- NUEVO
+
+
+
+
